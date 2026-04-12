@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
+import { useParams, usePathname } from 'next/navigation'
 import { useI18n } from '@/lib/i18n'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
@@ -21,17 +21,25 @@ const languages = [
 
 export function Header() {
   const { t } = useI18n()
+  const pathname = usePathname()
   const params = useParams()
   const locale = (params.locale as string) || 'en'
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [langMenuOpen, setLangMenuOpen] = useState(false)
 
+  const basePath = `/${locale}`
   const navItems = [
-    { href: `/${locale}`, label: t('nav.home') },
-    { href: `/${locale}/products`, label: t('nav.products') },
-    { href: `/${locale}/about`, label: t('nav.about') },
-    { href: `/${locale}/contact`, label: t('nav.contact') },
+    { href: basePath, label: t('nav.home') },
+    { href: `${basePath}/products`, label: t('nav.products') },
+    { href: `${basePath}/about`, label: t('nav.about') },
+    { href: `${basePath}/contact`, label: t('nav.contact') },
   ]
+
+  const isActive = (href: string) => {
+    const normalizedPathname = pathname.replace(/\/+$/, '') || '/'
+    const normalizedHref = href.replace(/\/+$/, '')
+    return normalizedPathname === normalizedHref
+  }
 
   return (
     <header className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
@@ -42,7 +50,7 @@ export function Header() {
 
         <nav className='hidden md:flex md:items-center md:space-x-6'>
           {navItems.map(item => (
-            <Link key={item.href} href={item.href} className='text-sm font-medium transition-colors hover:text-primary'>
+            <Link key={item.href} href={item.href} className={cn('text-sm font-medium transition-colors hover:text-primary', isActive(item.href) && 'text-primary border-b-2 border-primary')}>
               {item.label}
             </Link>
           ))}
@@ -74,7 +82,7 @@ export function Header() {
         <nav className='border-t md:hidden'>
           <div className='container mx-auto space-y-2 px-4 py-4'>
             {navItems.map(item => (
-              <Link key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)} className='block py-2 text-sm font-medium'>
+              <Link key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)} className={cn('block py-2 text-sm font-medium', isActive(item.href) && 'text-primary')}>
                 {item.label}
               </Link>
             ))}
