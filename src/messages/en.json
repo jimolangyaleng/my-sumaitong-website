@@ -1,0 +1,47 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About Us",
+    "contact": "Contact",
+    "learnMore": "Learn More"
+  },
+  "hero": {
+    "title": "Your Trusted Partner for Quality Products",
+    "subtitle": "Discover amazing products from around the world",
+    "cta": "Shop Now"
+  },
+  "products": {
+    "title": "Our Products",
+    "viewAll": "View All",
+    "addToCart": "Add to Cart"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "We are dedicated to providing high-quality products to customers worldwide."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Submit",
+    "success": "Message sent successfully!"
+  },
+  "footer": {
+    "description": "Your trusted partner for quality products",
+    "rights": "All rights reserved."
+  },
+  "features": {
+    "quality": "Quality Guaranteed",
+    "authentic": "Authentic products",
+    "shipping": "Global Shipping",
+    "fast": "Fast delivery worldwide",
+    "returns": "Easy Returns",
+    "days": "30-day returns"
+  },
+  "cta": {
+    "title": "Ready to Start Shopping?",
+    "subtitle": "Join us and experience premium global shopping"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "products": "Produits",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Votre partenaire de confiance pour des produits de qualité",
+    "subtitle": "Découvrez des produits incroyables du monde entier",
+    "cta": "Acheter maintenant"
+  },
+  "products": {
+    "title": "Nos produits",
+    "viewAll": "Voir tout",
+    "addToCart": "Ajouter au panier"
+  },
+  "about": {
+    "title": "À propos",
+    "description": "Nous nous engageons à fournir des produits de haute qualité aux clients du monde entier."
+  },
+  "contact": {
+    "title": "Nous contacter",
+    "name": "Nom",
+    "email": "E-mail",
+    "message": "Message",
+    "submit": "Envoyer",
+    "success": "Message envoyé avec succès!"
+  },
+  "footer": {
+    "description": "Votre partenaire de confiance pour des produits de qualité",
+    "rights": "Tous droits réservés."
+  }
+}

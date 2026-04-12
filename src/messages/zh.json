@@ -1,0 +1,47 @@
+{
+  "nav": {
+    "home": "首页",
+    "products": "产品",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "learnMore": "了解更多"
+  },
+  "hero": {
+    "title": "您值得信赖的品质伙伴",
+    "subtitle": "发现来自世界各地的优质商品",
+    "cta": "立即购物"
+  },
+  "products": {
+    "title": "我们的产品",
+    "viewAll": "查看全部",
+    "addToCart": "加入购物车"
+  },
+  "about": {
+    "title": "关于我们",
+    "description": "我们致力于为全球客户提供优质产品。"
+  },
+  "contact": {
+    "title": "联系我们",
+    "name": "姓名",
+    "email": "邮箱",
+    "message": "留言",
+    "submit": "提交",
+    "success": "消息发送成功！"
+  },
+  "footer": {
+    "description": "您值得信赖的品质伙伴",
+    "rights": "版权所有。"
+  },
+  "features": {
+    "quality": "质量保证",
+    "authentic": "正品保证",
+    "shipping": "全球配送",
+    "fast": "快速送达",
+    "returns": "轻松退换",
+    "days": "30天退换"
+  },
+  "cta": {
+    "title": "准备好开始购物了吗？",
+    "subtitle": "加入我们，体验优质的全球购物服务"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "products": "製品",
+    "about": "会社概要",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "title": "高品質製品为您提供",
+    "subtitle": "世界中から素晴らしい製品を発見",
+    "cta": "今すぐ購入"
+  },
+  "products": {
+    "title": "製品一覧",
+    "viewAll": "すべて見る",
+    "addToCart": "カートに追加"
+  },
+  "about": {
+    "title": "会社概要",
+    "description": "私たちは世界中の顧客に高品質の製品を提供しています。"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "name": "お名前",
+    "email": "メールアドレス",
+    "message": "メッセージ",
+    "submit": "送信",
+    "success": "メッセージが送信されました！"
+  },
+  "footer": {
+    "description": "高品質製品为您提供",
+    "rights": "全著作権所有。"
+  }
+}
