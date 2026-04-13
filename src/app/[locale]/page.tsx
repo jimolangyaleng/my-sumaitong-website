@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useI18n } from '@/lib/i18n'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Star, Shield, Truck, RefreshCw } from 'lucide-react'
+import { ArrowRight, Star, Shield, Truck, RefreshCw, ShoppingCart, Heart } from 'lucide-react'
+import productsData from '@/json/product.json'
 
 export default function HomePage() {
   const { t } = useI18n()
@@ -17,12 +18,13 @@ export default function HomePage() {
     { icon: RefreshCw, title: t('features.returns'), desc: t('features.days') },
   ]
 
-  const products = [
-    { id: 1, name: 'Smart Watch Pro', price: 89.99, image: 'https://picsum.photos/seed/watch/400/400', category: 'Electronics' },
-    { id: 2, name: 'Wireless Earbuds', price: 59.99, image: 'https://picsum.photos/seed/earbuds/400/400', category: 'Electronics' },
-    { id: 3, name: 'Fitness Tracker', price: 39.99, image: 'https://picsum.photos/seed/fitness/400/400', category: 'Electronics' },
-    { id: 4, name: 'Bluetooth Speaker', price: 49.99, image: 'https://picsum.photos/seed/speaker/400/400', category: 'Electronics' },
-  ]
+  const products = productsData.products.slice(0, 4).map((p: any, index: number) => ({
+    id: index + 1,
+    name: p.title,
+    price: p.price,
+    image: p.image,
+    url: p.url,
+  }))
 
   return (
     <div className='flex flex-col'>
@@ -72,24 +74,19 @@ export default function HomePage() {
           </div>
           <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4'>
             {products.map(product => (
-              <Link key={product.id} href={`/${locale}/products`} className='group'>
+              <a key={product.id} href={product.url} target='_blank' rel='noopener noreferrer' className='group'>
                 <div className='overflow-hidden rounded-lg border bg-card'>
                   <div className='aspect-square'>
                     <img src={product.image} alt={product.name} className='h-full w-full object-cover transition-transform group-hover:scale-105' />
                   </div>
                   <div className='p-4'>
-                    <p className='text-xs text-muted-foreground'>{product.category}</p>
-                    <h3 className='font-semibold'>{product.name}</h3>
+                    <h3 className='font-semibold truncate'>{product.name}</h3>
                     <div className='mt-2 flex items-center justify-between'>
-                      <span className='font-bold'>${product.price}</span>
-                      <div className='flex items-center'>
-                        <Star className='h-3 w-3 fill-yellow-400 text-yellow-400' />
-                        <span className='ml-1 text-xs'>4.5</span>
-                      </div>
+                      <span className='font-bold'>{product.price}</span>
                     </div>
                   </div>
                 </div>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
