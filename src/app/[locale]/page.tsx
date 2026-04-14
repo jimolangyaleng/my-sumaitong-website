@@ -18,7 +18,7 @@ export default function HomePage() {
     { icon: RefreshCw, title: t('features.returns'), desc: t('features.days') },
   ]
 
-  const products = productsData.slice(0, 4).map((p: any, index: number) => ({
+  const products = productsData.slice(0, 8).map((p: any, index: number) => ({
     id: index + 1,
     name: p.title,
     price: p.price,
@@ -83,6 +83,10 @@ export default function HomePage() {
                     <h3 className='font-semibold truncate'>{product.name}</h3>
                     <div className='mt-2 flex items-center justify-between'>
                       <span className='font-bold'>{product.price}</span>
+                      <Button size='sm' className='ml-2'>
+                        <ShoppingCart className='h-3 w-3 mr-1' />
+                        {locale === 'zh' ? '购买' : 'Buy'}
+                      </Button>
                     </div>
                   </div>
                 </div>

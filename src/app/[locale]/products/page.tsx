@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useI18n } from '@/lib/i18n'
 import { Button } from '@/components/ui/button'
-import { Heart } from 'lucide-react'
+import { Heart, ShoppingCart } from 'lucide-react'
 import { products as productsData } from '@/lib/products'
 
 export default function ProductsPage() {
@@ -40,6 +40,10 @@ export default function ProductsPage() {
               <h3 className='font-semibold truncate'>{product.name}</h3>
               <div className='mt-3 flex items-center justify-between'>
                 <span className='text-lg font-bold'>{product.price}</span>
+                <Button size='sm'>
+                  <ShoppingCart className='h-3 w-3 mr-1' />
+                  {locale === 'zh' ? '购买' : 'Buy'}
+                </Button>
               </div>
             </div>
           </a>
