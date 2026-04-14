@@ -5,14 +5,14 @@ import { useParams } from 'next/navigation'
 import { useI18n } from '@/lib/i18n'
 import { Button } from '@/components/ui/button'
 import { Heart } from 'lucide-react'
-import productsData from '@/json/product.json'
+import { products as productsData } from '@/lib/products'
 
 export default function ProductsPage() {
   const { t } = useI18n()
   const params = useParams()
   const locale = (params.locale as string) || 'en'
 
-  const products = productsData.products.map((p: any, index: number) => ({
+  const products = productsData.map((p: any, index: number) => ({
     id: index + 1,
     name: p.title,
     price: p.price,

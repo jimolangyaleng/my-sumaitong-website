@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation'
 import { useI18n } from '@/lib/i18n'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Star, Shield, Truck, RefreshCw, ShoppingCart, Heart } from 'lucide-react'
-import productsData from '@/json/product.json'
+import { products as productsData } from '@/lib/products'
 
 export default function HomePage() {
   const { t } = useI18n()
@@ -18,7 +18,7 @@ export default function HomePage() {
     { icon: RefreshCw, title: t('features.returns'), desc: t('features.days') },
   ]
 
-  const products = productsData.products.slice(0, 4).map((p: any, index: number) => ({
+  const products = productsData.slice(0, 4).map((p: any, index: number) => ({
     id: index + 1,
     name: p.title,
     price: p.price,
