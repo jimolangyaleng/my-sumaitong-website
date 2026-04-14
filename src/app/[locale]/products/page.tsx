@@ -6,6 +6,7 @@ import { useI18n } from '@/lib/i18n'
 import { Button } from '@/components/ui/button'
 import { Heart, ShoppingCart } from 'lucide-react'
 import { products as productsData } from '@/lib/products'
+import { trackProductClick } from '@/lib/analytics'
 
 export default function ProductsPage() {
   const { t } = useI18n()
@@ -29,7 +30,7 @@ export default function ProductsPage() {
 
       <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4'>
         {products.map(product => (
-          <a key={product.id} href={product.url} target='_blank' rel='noopener noreferrer' className='group overflow-hidden rounded-lg border bg-card'>
+          <a key={product.id} href={product.url} target='_blank' rel='noopener noreferrer' className='group overflow-hidden rounded-lg border bg-card' onClick={() => trackProductClick(product.name, product.price, 'products_page')}>
             <div className='relative aspect-square'>
               <img src={product.image} alt={product.name} className='h-full w-full object-cover transition-transform group-hover:scale-105' />
               <Button variant='ghost' size='icon' className='absolute right-2 top-2 opacity-0 group-hover:opacity-100'>
@@ -40,7 +41,15 @@ export default function ProductsPage() {
               <h3 className='font-semibold truncate'>{product.name}</h3>
               <div className='mt-3 flex items-center justify-between'>
                 <span className='text-lg font-bold'>{product.price}</span>
-                <Button size='sm'>
+                <Button
+                  size='sm'
+                  onClick={e => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    trackProductClick(product.name, product.price, 'products_page_buy_button')
+                    window.open(product.url, '_blank')
+                  }}
+                >
                   <ShoppingCart className='h-3 w-3 mr-1' />
                   {locale === 'zh' ? '购买' : 'Buy'}
                 </Button>
