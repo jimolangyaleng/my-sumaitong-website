@@ -19,7 +19,7 @@ export default function HomePage() {
     { icon: RefreshCw, title: t('features.returns'), desc: t('features.days') },
   ]
 
-  const products = productsData.slice(0, 8).map((p: any, index: number) => ({
+  const products = productsData.slice(0, 40).map((p: any, index: number) => ({
     id: index + 1,
     name: p.title,
     price: p.price,

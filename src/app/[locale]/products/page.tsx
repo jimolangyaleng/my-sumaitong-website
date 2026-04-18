@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Heart, ShoppingCart, Search, ChevronLeft, ChevronRight } from 'lucide-react'
 import { products as productsData } from '@/lib/products'
 import { trackProductClick } from '@/lib/analytics'
+import { ProductsJsonLd, ProductOfferJsonLd } from '@/components/seo/products-json-ld'
 import { useState, useMemo } from 'react'
 
 export default function ProductsPage() {
@@ -72,6 +73,8 @@ export default function ProductsPage() {
 
   return (
     <div className='container mx-auto px-4 py-8 md:py-12'>
+      <ProductsJsonLd />
+      <ProductOfferJsonLd />
       <div className='mb-8'>
         <h1 className='mb-2 text-3xl font-bold'>{t('products.title')}</h1>
         <p className='text-muted-foreground'>{locale === 'zh' ? '发现我们精选的优质商品' : 'Discover our curated selection of quality products'}</p>
