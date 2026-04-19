@@ -19,7 +19,7 @@ export default function ProductsPage() {
 
   const [searchQuery, setSearchQuery] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
-  const [pageSize, setPageSize] = useState(10)
+  const [pageSize, setPageSize] = useState(100)
 
   const allProducts = productsData.map((p: any, index: number) => ({
     id: index + 1,
